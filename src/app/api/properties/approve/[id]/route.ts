@@ -9,7 +9,7 @@ export async function PATCH(
 ) {
   try {
     await connectDB();
-    const { id } = await params;
+    const { id } = params;
 
     const updatedProperty = await Property.findByIdAndUpdate(
       id,
