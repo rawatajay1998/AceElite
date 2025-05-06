@@ -85,6 +85,7 @@ export default function PropertyTable({ fetchUrl }: PropertyTableProps) {
     setSearchTexts((prev) => ({ ...prev, [dataIndex]: "" }));
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const getColumnSearchProps = (dataIndex: string): any => {
     if (!searchInputs.current[dataIndex]) {
       searchInputs.current[dataIndex] = null;
