@@ -3,16 +3,13 @@ import connectDB from "@/lib/db";
 import Property from "@/models/property.model";
 import { NextRequest } from "next/server";
 
-type Context = {
-  params: {
-    id: string;
-  };
-};
-
-export async function PATCH(req: NextRequest, context: Context) {
+export async function PATCH(
+  req: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
   try {
     await connectDB();
-    const { id } = context.params;
+    const { id } = await params;
 
     const updatedProperty = await Property.findByIdAndUpdate(
       id,
